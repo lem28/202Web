@@ -1,6 +1,6 @@
 #!usr/bin/php
 <?php
-class userDB
+class user_db
 {
 	private $db;
 	public function __construct()
@@ -17,7 +17,7 @@ class userDB
 	public function __destruct()
 	{
 		$this->db->close();
-		echo "Closed connection to db".PPH_EOL;
+		echo "Closed connection to db".PHP_EOL;
 	}
 
 	public function get_login_name($login_name)
@@ -26,7 +26,7 @@ class userDB
 		$get_results = $this->db->query($query);
 		if(!$get_results)
 		{
-			echo "error with results: ".$this->db->error.PPH_EOL;
+			echo "error with results: ".$this->db->error.PHP_EOL;
 			return 0;
 		}
 		$user = $get_results->fetch_assoc();
@@ -47,10 +47,9 @@ class userDB
 		$validate_results = $this->db->query($add_query);
 		if(!$validate_results)
 		{
-			echo "error with results: ".$this->db->error.PPH_EOL;
+			echo "error with results: ".$this->db->error.PHP_EOL;
 			return 0;
 		}
-	}
 	}
 	public function add_new_user($login_name,$password,$first_name,$last_name,$email)
 	{
@@ -70,20 +69,20 @@ class userDB
 			)
 			VALUES
 			(
-				'JD',
-				'scrubs',
-				'John',
-				'Dorian',
-				'jdorian@gmail.com',
+				'$login_name',
+				'$password',
+				'$first_name',
+				'$last_name',
+				'$email',
 			);";
 		$add_results = $this->db->query($add_query);
 		if(!$results)
 		{
-			echo "error with results: ".$this->db->error.PPH_EOL;
+			echo "error with results: ".$this->db->error.PHP_EOL;
 		}
 		else
 		{
-			echo "Added $login_name";
+			echo "Added $login_name".PHP_EOL;
 		}
 		return 0;
 	}
