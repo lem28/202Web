@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-echo "Right now, this script is trash. Soon, it will be platinum trash.".PHP_EOL;
+echo "Garbage script".PHP_EOL;
 $newArray = array();
 $newArray[] = 1;
 $newArray[] = 2;

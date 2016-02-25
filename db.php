@@ -1,32 +1,33 @@
 #!usr/bin/php
 <?php
+require_once("db.php.inc");
 
-	$db = new mysqli("localhost","root","herecomesthesnow45","it202");
+$command = $argv[1];
 
-	if ($db->connect_errno > 0)
-	{
-		echo __file__.__line__." ERROR: ".$db->connect_error.PHP_EOL;
-		exit(-1);
-	}
-	echo "Connected to database".PHP_EOL;
-
-	$query = "select * from mojave";
-	$results = $db->query($query);
-	print_r($results);
-
-	$sql = "CREATE TABLE MyGuests (
-		id INT(8) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-		firstname VARCHAR(30) NOT NULL,
-		lastname VARCHAR(30) NOT NULL,
-		email VARCHAR(50),
-		reg_date TIMESTAMP
-	)";
-
-	if ($conn->query($sql) === TRUE) {
-		echo "Table MyGuests created successfully";
-	} else {
-		echo "Error creating table: " . $conn->error;
-	}
-	$db->close();
-
+switch($command)
+{
+	case 'register':
+		$login_name = $argv[2];
+		$password = $argv[3];
+		$first_name = $argv[4];
+		$last_name = $argv[5];
+		$email = $argv[6];
+		$db = new client_db();
+		$db->add_new_client($login_name,$password,$first_name,$last_name,$email);
+		break;
+	case 'login':
+		$login_name = $argv[2];
+		$password = $argv[3];
+		$db = new client_db();
+		if ($db->validate_client($login_name, $password) == 0)
+		{
+			echo "Invalid login".PHP_EOL;
+		}
+		else
+		{
+			echo "Logged in".PHP_EOL;
+		}
+		break;
+	default:
+		echo "usage:\n".$argv[0]."[register <login name> <password> <first name> <last name> <email> | login <login name> <password>".PHP_EOL;
 ?>
