@@ -7,6 +7,7 @@ create table users
 	user_first_name varchar(32),
 	user_last_name varchar(32),
 	user_email varchar(32),
-	active_session varchar(128),
-	last_login datetime
+	activeSession varchar(128),
+    firstLogin datetime,
+    lastLogin  datetime
 );
