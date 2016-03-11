@@ -3,3 +3,4 @@ host = localhost
 user = root
 password = herecomesthesnow45
 db = it202
+salt = PVQ3u133LjePHQUvyVMVQytK8ZDDlWKN
