@@ -96,29 +96,35 @@
 	</script>
 </head>
 <body onload="date(); startTime()">
-	<div class="main" id="clock">
+	<div class="column_r" id="clock">
 		<div id="date"></div>
 		<div id="time"></div>
 	</div>
-	<div class="column_l" name="box.register">
-		<div>
-			<form action="php/rpc.php" method="post" >
-			<p>username: <input type="text" name="username" /></p>
-			<p>password: <input type ="password" name="password" /></p>
-			<p>first name: <input type ="text" name="first_name" /></p>
-			<p>last name: <input type ="text" name="last_name" /></p>
-			<p>email: <input type ="text" name="email" /></p>
-			<input type="submit" name="request" value="register"/>
-			</form>
+	<div class="main" style="background-color: rgba(0,0,0,0.0); text-align: right;">
+		<div class="column_l" name="box.register">
+			<div>
+				<form action="php/rpc.php" method="post" >
+				<p>username: <input type="text" name="username" /></p>
+				<p>password: <input type ="password" name="password" /></p>
+				<p>first name: <input type ="text" name="first_name" /></p>
+				<p>last name: <input type ="text" name="last_name" /></p>
+				<p>email: <input type ="text" name="user_email" /></p>
+				<div style="text-align: left;">
+					<input type="submit" name="request" value="register"/>
+				</div>
+				</form>
+			</div>
 		</div>
-	</div>
-	<div class="column_l" name="box.login">
-		<div>
-			<form action="php/rpc.php" method="post" >
-			<p>username: <input type="text" name="username" /></p>
-			<p>password: <input type ="password" name="password" /></p>
-			<input type="submit" name="request" value="login"/>
-			</form>
+		<div class="column_l" name="box.login">
+			<div>
+				<form action="php/rpc.php" method="post" >
+				<p>username: <input type="text" name="username" /></p>
+				<p>password: <input type ="password" name="password" /></p>
+				<div style="text-align: left;">
+					<input type="submit" name="request" value="login"/>
+				</div>				
+				</form>
+			</div>
 		</div>
 	</div>
 </body>
